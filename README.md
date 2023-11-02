@@ -1,6 +1,38 @@
 # VRPOptimizer
 
-Welcome to the VRPOptimizer repository! This project is dedicated to tackling the complex and challenging Vehicle Routing Problem (VRP), a staple in the field of logistics and supply chain management. Our aim is to develop an efficient and scalable solution that minimizes the total route cost while respecting various constraints such as delivery time windows, vehicle capacities, and customer requirements.
+Welcome to the VRPOptimizer repository! This is an ongoing project dedicated to tackling the complex and challenging Vehicle Routing Problem (VRP), a staple in the field of logistics and supply chain management. Our aim is to develop an efficient and scalable solution that minimizes the total route cost while respecting various constraints such as delivery time windows, vehicle capacities, and customer requirements.
+
+## Optimized Multi-Depot Routing Model (OMDRM)
+
+The [Optimized Multi-Depot Routing Model (OMDRM)](src/omdrm.py) is an advanced algorithmic solution for solving complex logistics and transportation challenges. It leverages Google's OR-Tools to efficiently manage a fleet of vehicles across multiple depots, ensuring timely and cost-effective deliveries.
+
+### Overview of OMDRM
+
+- **Manages a fleet of 4 vehicles.**
+- **Handles 5 depots and 4 additional delivery locations.**
+- **Incorporates time windows to maintain punctual deliveries.**
+- **Allows for flexible vehicle deployment with variable start and end depots.**
+
+OMDRM uses a sophisticated approach to minimize total travel time while adhering to the constraints of delivery windows and depot locations.
+
+### How OMDRM Works
+
+1. Initializes data for the routing problem, including a time matrix and time windows for deliveries.
+2. Creates a routing index manager and model to facilitate the optimization process.
+3. Registers a callback function to calculate travel times between points accurately.
+4. Sets up constraints for travel times and delivery windows within the routing model.
+5. Employs the OR-Tools solver to determine the most efficient routes.
+6. Provides a detailed output of routes, schedules, and total travel time upon finding an optimal solution.
+
+### Expected Output
+
+OMDRM will generate an output detailing:
+- The order of locations visited by each vehicle.
+- Start and finish times for each route.
+- Duration of travel between consecutive locations.
+- The aggregated time taken for all routes, providing a benchmark for the solution's efficiency.
+
+This model serves as a robust framework for tackling the complexities inherent in multi-depot vehicle routing scenarios.
 
 ## Repository Contents
 
@@ -34,10 +66,56 @@ Welcome to the VRPOptimizer repository! This project is dedicated to tackling th
 
 - **Community-Driven**: Contributions are welcome! Whether it's a new feature, bug fix, or an improvement in the documentation, community input is valued.
 
-## Getting Started
+- **Multiple Depots**: Supports routing for vehicles originating from different depots.
 
+- **Time Windows**: Each location has a time window within which the delivery or service must be made.
+
+- **Fleet Management**: Optimizes routes for multiple vehicles and ensures that the workload is distributed among the available vehicles.
+
+- **Constraints Handling**: Takes into account travel times and service times, ensuring that each location is visited within its specified time window.
+
+## Getting Started
+[ ] Add docs
 To get started with the VRPOptimizer, please refer to the `docs/` directory, which provides comprehensive guidance on setting up the environment, running the code, and contributing to the project.
 
+## Problem Setup
+
+- **Locations**: 5 depots and 4 additional locations.
+- **Vehicles**: A fleet of 4 vehicles, each starting from a different depot.
+- **Constraints**:
+  - Travel time between locations.
+  - Time windows for visiting each location.
+  - Maximum route duration for each vehicle.
+
+
+
+## Prerequisites
+
+- Python 3.x
+- OR-Tools library installed via pip:
+  ```bash
+  pip install ortools
+
+  ```
+
+## Running the Script
+
+```bash
+python vehicle_routing.py
+```
+
+Sample ouput
+
+```bash
+Objective: 34
+Route for vehicle 0:
+0 Time(0, 0) -> 2 Time(9, 9) -> 4 Time(17, 17) -> 0 Time(25, 25)
+Time of the route: 25min
+
+...
+Total time of all routes: 95min
+
+```
 ## Contributing
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**. Check out the `CONTRIBUTING.md` file on how to get started.
