@@ -101,7 +101,7 @@ To get started with the VRPOptimizer, please refer to the `docs/` directory, whi
 ## Running the Script
 
 ```bash
-python vehicle_routing.py
+python omdrm.py
 ```
 
 Sample ouput
