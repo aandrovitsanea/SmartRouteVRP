@@ -59,6 +59,8 @@ To get started with the VRPOptimizer, please refer to the `docs/` directory, whi
 
 ## Running the Script
 
+In `ipython3` console:
+
 ```ipython3
 import sys
 sys.path.append('../src')
@@ -84,7 +86,7 @@ Maximum of the route distances: 24m
 
 ```
 
-<img src="notebooks/route_2023-11-03 10:19:18.png" alt="Optimized route for 1 vehicle" width="400" height="180">
+<img src="notebooks/route_2023-11-03 10:19:18.png" alt="Optimized route for 1 vehicle" width="400" height="400">
 
 ## Repository Contents
 
