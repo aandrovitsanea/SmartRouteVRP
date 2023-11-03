@@ -4,7 +4,7 @@ Welcome to the VRPOptimizer repository! This is an ongoing project dedicated to 
 
 ## Optimized Multi-Depot Routing Model (OMDRM)
 
-The [Optimized Multi-Depot Routing Model (OMDRM)](src/omdrm.py) is an advanced algorithmic solution for solving complex logistics and transportation challenges. It leverages Google's OR-Tools to efficiently manage a fleet of vehicles across multiple depots, ensuring timely and cost-effective deliveries.
+The [Optimized Multi-Depot Routing Model (OMDRM)](src/solvers.py) is an advanced algorithmic solution for solving complex logistics and transportation challenges. It leverages Google's OR-Tools to efficiently manage a fleet of vehicles across multiple depots, ensuring timely and cost-effective deliveries.
 
 ### Overview of OMDRM
 
