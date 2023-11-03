@@ -26,13 +26,65 @@ OMDRM uses a sophisticated approach to minimize total travel time while adhering
 
 ### Expected Output
 
-OMDRM will generate an output detailing:
+OMDRM generates an output detailing:
 - The order of locations visited by each vehicle.
 - Start and finish times for each route.
 - Duration of travel between consecutive locations.
 - The aggregated time taken for all routes, providing a benchmark for the solution's efficiency.
 
 This model serves as a robust framework for tackling the complexities inherent in multi-depot vehicle routing scenarios.
+
+
+## Getting Started
+[ ] Add docs
+To get started with the VRPOptimizer, please refer to the `docs/` directory, which provides comprehensive guidance on setting up the environment, running the code, and contributing to the project.
+
+## Problem Setup
+
+- **Locations**: 5 depots and 4 additional locations.
+- **Vehicles**: A fleet of 4 vehicles, each starting from a different depot.
+- **Constraints**:
+  - Travel time between locations.
+  - Time windows for visiting each location.
+  - Maximum route duration for each vehicle.
+
+## Prerequisites
+
+- Python 3.x
+- OR-Tools library installed via pip:
+  ```bash
+  pip install ortools
+
+  ```
+
+## Running the Script
+
+```ipython3
+import sys
+sys.path.append('../src')
+import solvers as solvers
+import importlib
+import generator
+importlib.reload(solvers)
+importlib.reload(generator)
+
+data = generator.create_data_model_one_vehicle()
+manager, routing, solution = solvers.omdrm_one_vehicle(data)
+```
+or run [notebook](notebooks/app_1_vehicle.ipynb).
+
+**Sample ouput**
+
+```bash
+Route for vehicle 0:
+ 0 -> 1 -> 4 -> 3 -> 2 -> 0
+Distance of the route: 24m
+
+Maximum of the route distances: 24m
+
+```
+
+<img src="notebooks/route_2023-11-03 10:19:18.png" alt="Optimized route for 1 vehicle" width="400" height="180">
 
 ## Repository Contents
 
@@ -74,48 +126,10 @@ This model serves as a robust framework for tackling the complexities inherent i
 
 - **Constraints Handling**: Takes into account travel times and service times, ensuring that each location is visited within its specified time window.
 
-## Getting Started
-[ ] Add docs
-To get started with the VRPOptimizer, please refer to the `docs/` directory, which provides comprehensive guidance on setting up the environment, running the code, and contributing to the project.
+## TODOs
 
-## Problem Setup
+[ ] Fix generalization for multiple vehicles, routes, depos.
 
-- **Locations**: 5 depots and 4 additional locations.
-- **Vehicles**: A fleet of 4 vehicles, each starting from a different depot.
-- **Constraints**:
-  - Travel time between locations.
-  - Time windows for visiting each location.
-  - Maximum route duration for each vehicle.
-
-
-
-## Prerequisites
-
-- Python 3.x
-- OR-Tools library installed via pip:
-  ```bash
-  pip install ortools
-
-  ```
-
-## Running the Script
-
-```bash
-python omdrm.py
-```
-
-Sample ouput
-
-```bash
-Objective: 34
-Route for vehicle 0:
-0 Time(0, 0) -> 2 Time(9, 9) -> 4 Time(17, 17) -> 0 Time(25, 25)
-Time of the route: 25min
-
-...
-Total time of all routes: 95min
-
-```
 ## Contributing
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**. Check out the `CONTRIBUTING.md` file on how to get started.
